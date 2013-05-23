@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+<body>
+  <form action="#">
+    <input type="text" /><br />
+    <input type="text" /><br />
+    <input type="text" /><br />
+    <input type="button" value="Button" onClick="alert('Do Nothing.')" />
+  </form>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="jquery.clearableinput.js"></script>
+  <script type="text/javascript">
+
+    /*
+    wrapper: '<div/>',
+    wrapper_class: 'clearable-input-wrapper',
+    icon: '<span>(X)</span>',
+    icon_class: 'clearable-input-icon',
+    hide_if_empty: true
+    */
+    $('input[type="text"]').clearableInput({
+    });
+  </script>
+</body>
+</html>
+
