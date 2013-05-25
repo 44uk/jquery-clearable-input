@@ -1,4 +1,4 @@
-/*
+/**
  * jquery.clearableinput - https://github.com/yukku0423/jquery-clearableinput
  * jQuery Plugin. tested on 1.9.1
  *
@@ -10,26 +10,29 @@
 
 jQuery.fn.clearableInput = function(args){
     var options = jQuery.extend({
-        wrapper: '<div/>',
+        wrapper:       '<div/>',
         wrapper_class: 'clearable-input-wrapper',
-        icon: '<span>(X)</span>',
-        icon_class: 'clearable-input-icon',
+        icon:          '<span>(X)</span>',
+        icon_class:    'clearable-input-icon',
+        adjust_left:   '2px',
+        adjust_top:    '2px',
         hide_if_empty: true
     }, args);
 
-    var $this = $(this);
+    var $this    = $(this);
     var $wrapper = $(options.wrapper);
-    var $icon = $(options.icon);
+    var $icon    = $(options.icon);
 
     $wrapper.addClass(options.wrapper_class)
         .css('position', 'relative')
-        .css('width', $this.outerWidth(true))
+        .css('display' , 'inline-block')
+        .css('width'   , $this.outerWidth(true))
     ;
 
     $icon.addClass(options.icon_class)
         .css('position', 'absolute')
-        .css('right', '2px')
-        .css('top', '2px')
+        .css('right' , options['adjust_left'])
+        .css('top',    options['adjust_top'])
     ;
 
     $icon.bind('click', function(e){
@@ -45,7 +48,7 @@ jQuery.fn.clearableInput = function(args){
     if (options.hide_if_empty) {
         $icon.hide();
 
-        $this.bind('keyup', function(e){
+        $this.bind('keyup', function () {
             var $this = $(this);
             var $icon = $this.parent().children('.' + options.icon_class);
 
@@ -57,7 +60,5 @@ jQuery.fn.clearableInput = function(args){
         });
     }
 
-    $this.wrap($wrapper)
-        .after($icon)
-    ;
+    $this.wrap($wrapper).after($icon);
 };
