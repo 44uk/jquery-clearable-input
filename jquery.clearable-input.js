@@ -7,21 +7,20 @@
  *
  * $Date: 2013-05-23
  */
-
 jQuery.fn.clearableInput = function(args){
     var options = jQuery.extend({
         wrapper:       '<div/>',
         wrapper_class: 'clearable-input-wrapper',
         icon:          '<span>(X)</span>',
         icon_class:    'clearable-input-icon',
-        adjust_left:   '2px',
+        adjust_right:  '2px',
         adjust_top:    '2px',
         hide_if_empty: true
     }, args);
 
-    var $this    = $(this);
-    var $wrapper = $(options.wrapper);
-    var $icon    = $(options.icon);
+    var $this    = jQuery(this);
+    var $wrapper = jQuery(options.wrapper);
+    var $icon    = jQuery(options.icon);
 
     $wrapper.addClass(options.wrapper_class)
         .css('position', 'relative')
@@ -31,12 +30,12 @@ jQuery.fn.clearableInput = function(args){
 
     $icon.addClass(options.icon_class)
         .css('position', 'absolute')
-        .css('right' , options['adjust_left'])
+        .css('right' , options['adjust_right'])
         .css('top',    options['adjust_top'])
     ;
 
     $icon.bind('click', function(e){
-        var $this = $(this);
+        var $this = jQuery(this);
 
         $this.parent().find('input').val('');
 
@@ -49,7 +48,7 @@ jQuery.fn.clearableInput = function(args){
         $icon.hide();
 
         $this.bind('keyup', function () {
-            var $this = $(this);
+            var $this = jQuery(this);
             var $icon = $this.parent().children('.' + options.icon_class);
 
             if($this.val() == '') {
