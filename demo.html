@@ -1,32 +1,60 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title></title>
+    <meta charset="UTF-8"/>
+    <title>jQuery.clearable-input.demo</title>
+    <style type="text/css">
+        label {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <form action="#">
-    <input type="text" /><br />
-    <input type="text" /><br />
-    <input type="text" /><br />
-    <input type="button" value="Button" onClick="alert('Do Nothing.')" />
-  </form>
+<form action="#">
+    <div>
+        <label for="in1">
+            Default
+        </label>
+        <input id="in1" type="text"/>
+    </div>
+    <div>
+        <label for="in2">
+            {icon: &lt;img src="clear.png" alt="clear-icon"&gt;}
+        </label>
+        <input id="in2" type="text"/>
+    </div>
+    <div>
+        <label for="in3">
+            {hide_if_empty: false}
+        </label>
+        <input id="in3" type="text"/>
+    </div>
+</form>
 
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript" src="jquery.clearable-input.js"></script>
-  <script type="text/javascript">
-    /*
-    wrapper:       '<div/>',
-    wrapper_class: 'clearable-input-wrapper',
-    icon:          '<span>(X)</span>',
-    icon_class:    'clearable-input-icon',
-    adjust_left:   '2px',
-    adjust_top:    '2px',
-    hide_if_empty: true
-    */
-    $('input[type="text"]').clearableInput({
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="jquery.clearable-input.js"></script>
+<script type="text/javascript">
+    /**
+     default values
+     {
+         wrapper:       '<div/>',
+         wrapper_class: 'clearable-input-wrapper',
+         icon:          '<span>(X)</span>',
+         icon_class:    'clearable-input-icon',
+         adjust_right:  '2px',
+         adjust_top:    '2px',
+         hide_if_empty: true
+     }
+     */
+    $('#in1').clearableInput({ });
+    $('#in2').clearableInput({
+        icon: '<img src="clear.png" alt="clear-icon" style="width:16px;height:16px"/>',
+        adjust_right:  '4px',
+        adjust_top:    '4px'
     });
-  </script>
+    $('#in3').clearableInput({
+        hide_if_empty: false
+    });
+</script>
 </body>
 </html>
-
