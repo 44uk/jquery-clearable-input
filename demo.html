@@ -29,6 +29,12 @@
         </label>
         <input id="in3" type="text"/>
     </div>
+    <div>
+        <label for="in4">
+          {callback: function(){ alert('clear!'); }}
+        </label>
+        <input id="in4" type="text" value="foo"/>
+    </div>
 </form>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -48,12 +54,16 @@
      */
     $('#in1').clearableInput({ });
     $('#in2').clearableInput({
-        icon: '<img src="clear.png" alt="clear-icon" style="width:16px;height:16px"/>',
-        adjust_right:  '4px',
-        adjust_top:    '4px'
+        icon: '<img src="clear.png" alt="clear-icon" style="width:14px;height:14px"/>',
+        adjust_right:  '6px',
+        adjust_top:    '6px'
     });
     $('#in3').clearableInput({
         hide_if_empty: false
+    });
+
+    $('#in4').clearableInput({
+        callback: function(){ alert('clear!'); }
     });
 </script>
 </body>

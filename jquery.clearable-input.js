@@ -43,10 +43,16 @@
             if (options.hide_if_empty) {
                 $this.hide();
             }
+
+            if (typeof (options.callback) === 'function') {
+                options.callback();
+            }
         });
 
         if (options.hide_if_empty) {
-            $icon.hide();
+            if ($this.val() == '') {
+              $icon.hide();
+            }
 
             $this.bind('keyup', function () {
                 var $this = jQuery(this);
